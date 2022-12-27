@@ -4,7 +4,7 @@ variable "region" {
 }
 
 variable "prefix" {
-  default     = "project-123"
+  default     = "personal-project"
   description = "organization or service name, has to be unique"
 }
 
