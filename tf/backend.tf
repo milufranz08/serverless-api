@@ -36,6 +36,7 @@ resource "aws_s3_bucket" "remote_state" {
   }
 }
 
+# Every update to a file in the bucket creates a new version of that file
 resource "aws_s3_bucket_versioning" "enabled" {
   bucket = aws_s3_bucket.remote_state.id
   versioning_configuration {
@@ -54,6 +55,7 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "default" {
   }
 }
 
+# Block all public access to the S3 bucket
 resource "aws_s3_bucket_public_access_block" "public_access" {
   bucket                  = aws_s3_bucket.remote_state.id
   block_public_acls       = true
